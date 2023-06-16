@@ -30,7 +30,7 @@ export async function POST(request) {
       {
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", "content": generatePrompt(request.body.idea, request.body.tech) }],
-        max_tokens: 2000,
+        max_tokens: 1900,
         temperature: 0.9,
       }
     )
