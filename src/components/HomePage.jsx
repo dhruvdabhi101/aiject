@@ -130,16 +130,24 @@ export default function HomePage(props) {
 
 
     try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+       // const response = await fetch("https://us-central1-aiject.cloudfunctions.net/generate", {
+        const response = await fetch("https://us-central1-aiject.cloudfunctions.net/generate", {
 
-      const data = await response.json();
-      console.log(data);
-      setQuestions(data.result.content.split("\n"))
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                tech: techStack,
+                idea: projectIdea
+            })
+        });
+        console.log(response)
+     const data = await response.json();
+           const answerString = data.choices[0].message.content;
+           console.log(answerString.split("\n"));
+    //    const answerString = data.choices[0].message;
+        setQuestions(answerString.split("\n"))
 
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
