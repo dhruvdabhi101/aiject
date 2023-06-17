@@ -67,7 +67,7 @@ exports.generate = functions.https.onRequest(async (request, response) => {
     }
 
     function generatePrompt(idea, tech) {
-        return `You are a programming teacher. Provide me set of simple questions that will guid me through process of creating ${idea}. By answering those questions and implementing the solutions in ${tech} I will be able to build my website. Please only give questions, not any other extra text. and also implementation of each questions should be less than or equal to 100 lines of code.`;
+        return `Provide me set of simple questions that will guide me through process of creating ${idea}. By answering those questions and implementing the solutions, I will be able to build my website. Please only give questions, not any other extra text. and also implementation of each questions should be less than or equal to 100 lines of code. I want to use ${tech} for it`
     }
 
 
