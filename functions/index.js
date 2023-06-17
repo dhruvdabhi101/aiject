@@ -67,7 +67,16 @@ exports.generate = functions.https.onRequest(async (request, response) => {
     }
 
     function generatePrompt(idea, tech) {
-        return `Provide me set of simple questions that will guide me through process of creating ${idea}. By answering those questions and implementing the solutions, I will be able to build my website. Please only give questions, not any other extra text. and also implementation of each questions should be less than or equal to 100 lines of code. I want to use ${tech} for it`
+     //   return `Provide me set of simple questions that will guide me through process of creating ${idea}. By answering those questions and implementing the solutions, I will be able to build my website. Please only give questions, not any other extra text. and also implementation of each questions should be less than or equal to 100 lines of code. I want to use ${tech} for it`
+    return `Provide me set of simple questions that will guide me through process of creating ${idea}. By answering those questions and implementing the solutions, I will be able to build my project. Please only give questions, not any other extra text. and also implementation of each questions should be less than or equal to 100 lines of code. I want to use ${tech} for it.
+            Provide answers which are directly related to implementation not any other questions. 
+            For example : 
+            1. for backend, create XYZ Api
+            2. Use JWT Token to verify user
+            3. use axios to connect frontend with API.
+            4. use react router to navigate between pages
+            etc. 
+            Questions should be focused on implementation only, not any other optimisations.  `
     }
 
 
