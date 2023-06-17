@@ -25,7 +25,7 @@ export default function Landing(props) {
     } else {
       await setDoc(doc(userRef, props.auth.currentUser.uid), {
         uid: props.auth.currentUser.uid,
-        tokens: 5,
+        tokens: 3,
       });
 
     }
