@@ -13,7 +13,7 @@ import {
     Skeleton,
     Spinner
 } from "@chakra-ui/react";
-import { collection, getFirestore, query, orderBy, serverTimestamp, Firestore, addDoc, where, getDocs, doc, get, setDoc, updateDoc, getDoc } from 'firebase/firestore'
+import { collection, getFirestore, query, orderBy, serverTimestamp, Firestore, addDoc, where, getDocs, doc, get, setDoc, updateDoc, getDoc, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from "react";
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -30,6 +30,18 @@ export default function HomePage(props) {
     const [techStack, setTechStack] = useState("")
     const [loading, setLoading] = useState(false)
     const [qLoading, setQLoading]= useState(false)
+
+    const db = getFirestore(props.app)
+    const userRef = collection(db, 'users')
+    const docRef = doc(db, "users", props.auth.currentUser.uid)
+    onSnapshot(docRef, (doc) => {
+        if (doc.exists()) {
+            console.log("Document data:", doc.data());
+            setTokens(doc.data().tokens)
+        } else {
+            console.log("No such document!");
+        }
+    })
 
     useEffect(() => {
         setLoading(true)
@@ -76,7 +88,6 @@ export default function HomePage(props) {
       await updateDoc(docRef, {
         tokens: docSnap.data().tokens + 10
       })
-      setTokens(docSnap.data().tokens + 10)
     } else {
       console.log("No such document!");
     }
@@ -94,7 +105,6 @@ export default function HomePage(props) {
       await updateDoc(docRef, {
         tokens: docSnap.data().tokens - 1
       })
-      setTokens(docSnap.data().tokens - 1)
     } else {
       console.log("No such document!");
     }
