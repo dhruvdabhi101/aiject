@@ -14,8 +14,8 @@ export async function POST(req, res) {
         },
       ],
       mode: 'payment',
-      success_url: `https://aiject.vercel.app/?success=true`,
-      cancel_url: `https://aiject.vercel.app/?canceled=true`,
+      success_url: `https://aiject.tech/?success=true`,
+      cancel_url: `https://aiject.tech/?canceled=true`,
     });
     return NextResponse.json({ id: session.id });
     // NextResponse.redirec(session.url, {headers: {'Location': session.url}});
