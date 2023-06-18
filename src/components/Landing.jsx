@@ -53,7 +53,7 @@ export default function Landing(props) {
           "url(https://img.freepik.com/free-vector/dark-gradient-background-with-copy-space_53876-99548.jpg?w=740&t=st=1685090878~exp=1685091478~hmac=9dc5f235602db5cfc684f5770b5bab12eb0d120145799a6767c5c8fbef2b51aa)"
         }
       >
-        <Center h={"100vh"} w={["90%", "100%"]}>
+        <Center h={"100vh"} w={"100%"}>
           {loading ? <Text color={"white"} fontSize={"xl"}>Loading...</Text> :
             (
               <Flex
@@ -61,21 +61,25 @@ export default function Landing(props) {
                 justify={"center"}
                 gap={"6"}
                 direction={"column"}
+                w={"100%"}
               >
                 <Text
                   color={"white"}
                   fontWeight={"extrabold"}
-                  fontSize={["xl", "3xl", "6xl"]}
+                  fontSize={["xl","2xl", "3xl", "6xl"]}
                   fontFamily={"sans-serif"}
                   size={"xl"}
+                align={"center"}
                 >
                   Get Out Of the Tutorial Hell with <Text as='span' color={"pink.600"}>AIJect</Text>
                 </Text>
                 <Text
                   fontWeight={"normal"}
-                  fontSize={["md", "lg", "2xl"]}
+                  fontSize={["sm","mg","lg" ,"xl", "2xl", "2xl"]}
                   color={"whiteAlpha.800"}
                   fontFamily={"sans-serif"}
+                width={"80%"}
+                align={"center"}
                 >
                   Solve Question and Implement them, Get your project Ready with AI.
                 </Text>
