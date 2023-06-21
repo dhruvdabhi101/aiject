@@ -20,6 +20,6 @@ export async function POST(req, res) {
     return NextResponse.json({ id: session.id });
     // NextResponse.redirec(session.url, {headers: {'Location': session.url}});
   } catch (err) {
-    res.status(err.statusCode || 500).json(err.message);
+      NextResponse.json({ error: { message: err.message } });
   }
 }
